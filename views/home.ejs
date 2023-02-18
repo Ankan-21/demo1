@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Student Table</h2> 
+  <a href="/addStudent" class="btn btn-success">Add user</a>          
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>city</th>
+        <th>usertype</th>
+        <th colspan="2">Action</th>
+      </tr>
+    </thead>
+    <% let count= 0;
+    if(student.length> 0) {%>
+    <tbody>
+      <% for(let data of student){%>
+      <tr>
+        <td><%= data.name%></td>
+        <td><%=data.email%></td>
+        <td><%=data.phone%></td>
+        <td><%=data.city%></td>
+        <td><%=data.usertype%></td>
+        <td><a href="/edit/<%= data._id%>" class="btn btn-primary">Update</a></td>
+        <td><a href="/delete/<%= data._id%>" class="btn btn-danger">Delete</a></td>
+      </tr>
+    </tbody>
+    <%} }else{%>
+      <h1>No data Found</h1>
+      <% } %>
+  </table>
+</div>
+
+</body>
+</html>
